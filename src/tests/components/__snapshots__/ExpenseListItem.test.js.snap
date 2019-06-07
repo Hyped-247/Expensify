@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render expense list items 1`] = `
+<div>
+  <h2>
+    This is my ExpenseList component.
+  </h2>
+  <div>
+    <Link
+      replace={false}
+      to="/edit/undefined"
+    >
+      <h2 />
+    </Link>
+    <h2 />
+    <h2 />
+  </div>
+</div>
+`;
