@@ -28,3 +28,4 @@ chrome-user-data
 *.swp
 *.swo
 src/styles/components/
+public/dist/
