@@ -4,7 +4,7 @@ import ExpenseForm from './ExpenseForm';
 import {editExpense, removeExpense} from "../actions/expenses";
 
 
-export class EditExpensePage extends React.Component{
+export class EditExpensePage extends React.Component {
 
     onSubmit = (expense) => {
         this.props.editExpense(this.props.expense.id, expense);
