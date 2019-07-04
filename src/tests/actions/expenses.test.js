@@ -56,21 +56,21 @@ test('should add expense to database and store', (done) => {
 test('should add expense with defaults to database and store', (done) => {
     // this is how to create a fake Redux store.
     const store = createMockStore({});
-    const expenseData = {
+    const expenseDefaults = {
        description: '',
        amount: 0,
        note: '',
        createdAt: 0
     };
-    store.dispatch(startAddExpenses(expenseData)).then(() => {
+    store.dispatch(startAddExpenses({})).then(() => {
         const action = store.getActions();
         expect(action[0]).toEqual({
             type: 'ADD_EXPENSE',
-            expense: {id: expect.any(String), ...expenseData}
+            expense: {id: expect.any(String), ...expenseDefaults}
         });
     return database.ref(`expenses/${action[0].expense.id}`).once('value');
     }).then((snapshot) => {
-        expect(snapshot.val()).toEqual(expenseData);
+        expect(snapshot.val()).toEqual(expenseDefaults);
         done();
     });
 });
