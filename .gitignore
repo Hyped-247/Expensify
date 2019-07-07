@@ -29,3 +29,5 @@ chrome-user-data
 *.swo
 src/styles/components/
 public/dist/
+.env.development
+.env.test
