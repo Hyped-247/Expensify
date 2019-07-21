@@ -2,6 +2,7 @@ import {
     startAddExpenses,
     addExpense,
     editExpense,
+    startEditExpenses,
     removeExpense,
     setExpenses,
     startSetExpenses,
@@ -106,6 +107,24 @@ test('should add expense with defaults to database and store', (done) => {
     });
 });
 
+test('should edit expense from firebase', (done) => {
+    const store = createMockStore();
+    const id = expenses[0].id;
+    const updates = {amount: 21045};
+    store.dispatch(startEditExpenses(id, updates)).then(() => {
+        const action = store.getActions();
+        expect(action[0]).toEqual({
+            type: 'EDIT_EXPENSE',
+            id,
+            updates
+        });
+        return database.ref(`expenses/${id}`).once('value')
+            .then((snapshot) => {
+                expect(snapshot.val().amount).toBe(updates.amount);
+                done();
+        })
+    })
+});
 
 test('should setup expense action object with data', () => {
     const action = setExpenses(expenses);
@@ -123,13 +142,3 @@ test('should fetch the expenses from firebase', (done) => {
         done();
     })
 });
-
-
-
-
-
-
-
-
-
-
