@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { startLogin } from "../actions/auth";
 
 
-export const Login = ({ startLogin }) => (
+export const Login = (props) => (
     <div>
-        <button onClick={startLogin}>Login</button>
+        <button onClick={props.startLogin}>Login</button>
     </div>
 );
 
