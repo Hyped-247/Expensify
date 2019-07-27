@@ -6,7 +6,7 @@ import {Login} from "./Login";
 
 const ExpenseDashboardPage = () => (
   <div>
-      <Login />
+      {/*<Login />*/}
       <ExpenseSummary />
       <ExpenseListFilters />
       <ExpenseList />

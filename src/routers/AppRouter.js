@@ -18,8 +18,8 @@ const AppRouter = () => (
     <div>
       <Header />
       <Switch>
-        <Route path="/" component={Login} exact={true} />
-        <Route path="/dashboard" component={ExpenseDashboardPage} />
+        {/*<Route path="/" component={Login} exact={true} />*/}
+        <Route path="/" component={ExpenseDashboardPage} />
         <Route path="/create" component={AddExpensePage} />
         <Route path="/edit/:id" component={EditExpensePage} />
         <Route component={NotFoundPage} />
