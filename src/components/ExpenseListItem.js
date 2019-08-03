@@ -5,19 +5,15 @@ import numeral from 'numeral';
 
 
 const ExpenseListItem = (props) => (
-    <div>
-        <h2>This is my ExpenseList component.</h2>
+
+    <Link className={"list-item"} to={`/edit/${props.id}`}>
         <div>
-            <Link to={`/edit/${props.id}`}>
-                <h2>{props.description}</h2>
-            </Link>
-            <h2>
-                {numeral(props.amount / 100).format('$0,0.00')}
-                    -
-                {moment(props.createdAt).format('MMMM Do, YYYY')}
-            </h2>
+            <h3 className={"list-item__title"}>{props.description}</h3>
+            <span className={"list-item__sub-title"}>{moment(props.createdAt).format('MMMM Do, YYYY')}</span>
         </div>
-    </div>
+        <h3 className={"list-item__data"}>{numeral(props.amount / 100).format('$0,0.00')}</h3>
+    </Link>
+
 );
 
 

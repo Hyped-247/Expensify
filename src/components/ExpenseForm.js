@@ -65,9 +65,8 @@ export default class ExpenseForm extends React.Component {
     // Without defining onChange the inputs will be read only.
     render() {
         return (
-            <div>
-                {this.state.error && <p>{this.state.error}</p>}
-                <form onSubmit={this.OnSubmit}>
+                <form className={"form"} onSubmit={this.OnSubmit}>
+                    {this.state.error && <p className={"form__error"}> {this.state.error} </p>}
                     <input type="text"
                            placeholder="description"
                            autoFocus
@@ -96,12 +95,13 @@ export default class ExpenseForm extends React.Component {
                         className={"textarea"}
                         onChange={this.OnChangeTextArea}>
                     </textarea>
+                    <div>
+                        <button className={"button"}>
+                            {this.props.expense ? <span>Update Expense</span> : <span>Add Expense</span>}
+                        </button>
+                    </div>
 
-                    <button>
-                        {this.props.expense ? <span>Update Expense</span> : <span>Add Expense</span>}
-                    </button>
                 </form>
-            </div>
         )
     }
 }
